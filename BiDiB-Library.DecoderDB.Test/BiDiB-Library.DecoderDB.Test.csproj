@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>org.bidib.Net.DecoderDB.Test</AssemblyName>
+    <RootNamespace>org.bidib.Net.DecoderDB.Test</RootNamespace>
+      <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PackageId>org.bidib.net.decoderdb.test</PackageId>
+    <Authors>Robert Kölz</Authors>
+    <Copyright>bidib.org</Copyright>
+    <Company>org.bidib.net.DecoderDB.test</Company>
+    <Product>org.bidib.net.DecoderDB.test</Product>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.7.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
+      <PackageReference Include="coverlet.collector" Version="6.0.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BiDiB-Library.DecoderDB\BiDiB-Library.DecoderDB.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+	<Choose>
+		<When Condition="'$(Configuration)'=='Debug' ">
+			<ItemGroup>
+				<ProjectReference Include="..\..\Testing\BiDiB-Library.Testing\BiDiB-Library.Testing.csproj" />
+			</ItemGroup>
+		</When>
+		<When Condition="'$(Configuration)'=='Release' ">
+			<ItemGroup>
+				<PackageReference Include="org.bidib.Net.Testing" Version="1.0.7" />
+			</ItemGroup>
+		</When>
+	</Choose>
+
+</Project>

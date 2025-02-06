@@ -1,0 +1,72 @@
+# Merge pipeline for BiDiB-Library.DecoderDB
+
+name: BiDiB-Library.DecoderDB.Merge_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - refs/pull/*
+    exclude:
+      - main
+      - feature/*
+      - bug/*
+      - releases/*
+      - development
+      - netDev
+
+pool:
+  vmImage: "windows-2022"
+
+variables:
+  - template: variables.yml
+
+steps:
+  - checkout: self
+    persistCredentials: true
+
+  - task: NuGetToolInstaller@1
+
+  - task: DotNetCoreCLI@2
+    enabled: true
+    inputs:
+      command: 'restore'
+      projects: '**/*.sln'
+      feedsToUse: 'config'
+      nugetConfigPath: 'nuget.config'
+      restoreArguments: '/property:Configuration=$(BuildConfiguration)'
+  
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      platform: "$(buildPlatform)"
+      configuration: "$(buildConfiguration)"
+      msbuildArgs: "/p:DeployOnBuild=true /p:DeployTarget=Package;CreatePackageOnPublish=true"
+
+  - task: VSTest@2
+    continueOnError: false
+    inputs:
+      testSelector: "testAssemblies"
+      testAssemblyVer2: |
+        **\*.Test.dll
+        !**\*TestAdapter.dll
+        !**\obj\**
+      searchFolder: "$(System.DefaultWorkingDirectory)"
+      testFiltercriteria: TestCategory=UnitTest|TestCategory=IntegrationTest
+      codeCoverageEnabled: true
+      runSettingsFile: '$(System.DefaultWorkingDirectory)\CodeCoverage.runsettings'
+
+  - task: BuildQualityChecks@9
+    continueOnError: true
+    inputs:
+      checkWarnings: true
+      warningFailOption: "build"
+      showStatistics: true
+      checkCoverage: true
+      coverageFailOption: "build"
+      coverageType: "blocks"
+      coveragePrecision: "0"
+      forceCoverageImprovement: true
+      coverageUpperThreshold: "70"
+      baseDefinitionId: 34
+      baseBranchRef: "refs/heads/main"

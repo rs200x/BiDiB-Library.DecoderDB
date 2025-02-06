@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiDiB-Library.DecoderDB", "BiDiB-Library.DecoderDB\BiDiB-Library.DecoderDB.csproj", "{434188F2-CE7A-44CD-BC7B-C12A2C197EAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiDiB-Library.DecoderDB.Test", "BiDiB-Library.DecoderDB.Test\BiDiB-Library.DecoderDB.Test.csproj", "{51B3A6B3-3019-4986-97FE-644F9D4CF9E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC03DF5A-8683-4760-94F0-740A0C76D000}"
+	ProjectSection(SolutionItems) = preProject
+		CodeCoverage.runsettings = CodeCoverage.runsettings
+		Build\integration-pipeline.yml = Build\integration-pipeline.yml
+		Build\master-pipeline.yml = Build\master-pipeline.yml
+		Build\merge-pipeline.yml = Build\merge-pipeline.yml
+		nuget.config = nuget.config
+		Build\variables.yml = Build\variables.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiDiB-Library.Core", "..\Core\BiDiB-Library.Core\BiDiB-Library.Core.csproj", "{ABE0D55F-7D04-44A4-9A4D-D1A4D9CD351F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiDiB-Library.Testing", "..\Testing\BiDiB-Library.Testing\BiDiB-Library.Testing.csproj", "{B0ED8AF4-6A09-4B85-B590-702771B0DA52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{434188F2-CE7A-44CD-BC7B-C12A2C197EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434188F2-CE7A-44CD-BC7B-C12A2C197EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434188F2-CE7A-44CD-BC7B-C12A2C197EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434188F2-CE7A-44CD-BC7B-C12A2C197EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B3A6B3-3019-4986-97FE-644F9D4CF9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B3A6B3-3019-4986-97FE-644F9D4CF9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B3A6B3-3019-4986-97FE-644F9D4CF9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B3A6B3-3019-4986-97FE-644F9D4CF9E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE0D55F-7D04-44A4-9A4D-D1A4D9CD351F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE0D55F-7D04-44A4-9A4D-D1A4D9CD351F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE0D55F-7D04-44A4-9A4D-D1A4D9CD351F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0ED8AF4-6A09-4B85-B590-702771B0DA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0ED8AF4-6A09-4B85-B590-702771B0DA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0ED8AF4-6A09-4B85-B590-702771B0DA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {869A4DF5-B3C4-41C1-84BE-6464EC53AC29}
+	EndGlobalSection
+EndGlobal

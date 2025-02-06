@@ -1,0 +1,7 @@
+variables:
+  solution: "BiDiB-Library.DecoderDB.sln"
+  buildPlatform: "Any CPU"
+  buildConfiguration: "Release"
+  version: "1.0.0"
+  revision: $[counter(variables['version'], 0)]
+  packageVersion: '$(version)-dev.$(revision)'

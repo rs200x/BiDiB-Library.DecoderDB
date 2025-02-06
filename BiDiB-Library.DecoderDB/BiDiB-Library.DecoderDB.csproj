@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>org.bidib.Net.DecoderDB</AssemblyName>
+		<RootNamespace>org.bidib.Net.DecoderDB</RootNamespace>
+		<TargetFramework>net6.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<BclBuildImported>Ignore</BclBuildImported>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<Authors>Robert Kölz</Authors>
+		<Description>BiDiB-Library extension for managing loco/device decoder and firmware data provided by DecoderDB</Description>
+		<Copyright>bidib.org</Copyright>
+		<PackageIcon>bidib_logo.png</PackageIcon>
+		<Product>BiDiB-Library - DecoderDB Extension</Product>
+		<PackageId>org.bidib.net.decoderdb</PackageId>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>org.bidib.Net.DecoderDB.Test</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<Choose>
+		<When Condition="'$(Configuration)'=='Debug' ">
+			<ItemGroup>
+				<ProjectReference Include="..\..\Core\BiDiB-Library.Core\BiDiB-Library.Core.csproj" />
+			</ItemGroup>
+		</When>
+		<When Condition="'$(Configuration)'=='Release' ">
+			<ItemGroup>
+				<PackageReference Include="org.bidib.net.core" Version="1.0.7" />
+			</ItemGroup>
+		</When>
+	</Choose>
+
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<Folder Include="Services\" />
+		<None Include="bidib_logo.png" Pack="true" PackagePath="\" />
+		<None Include="readme.md" Pack="true" PackagePath="\" />
+		<Compile Remove="Controllers\NetBiDiBServerController.cs" />
+		<Compile Remove="Controllers\ServerControllerFactory.cs" />
+	</ItemGroup>
+
+</Project>
