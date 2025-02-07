@@ -71,7 +71,7 @@ steps:
       coveragePrecision: "0"
       forceCoverageImprovement: true
       coverageUpperThreshold: "70"
-      baseDefinitionId: 34
+      baseDefinitionId: 45
       baseBranchRef: "refs/heads/main"
 
   - task: DotNetCoreCLI@2
